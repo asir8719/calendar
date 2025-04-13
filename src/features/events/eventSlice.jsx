@@ -2,22 +2,22 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchEvents = createAsyncThunk('events/fetchEvents', async () => {
-  const res = await axios.get('https://calendarbackend-u7tr.onrender.com');
+  const res = await axios.get('https://calendarbackend-u7tr.onrender.com/api/events');
   return res.data;
 });
 
 export const createEvent = createAsyncThunk('events/createEvent', async (eventData) => {
-    const res = await axios.post('https://calendarbackend-u7tr.onrender.com', eventData);
+    const res = await axios.post('https://calendarbackend-u7tr.onrender.com/api/events', eventData);
     return res.data;
   });
 
 export const updateEvent = createAsyncThunk('events/updateEvent', async (eventData) => {
-    const res = await axios.put(`https://calendarbackend-u7tr.onrender.com/${eventData._id}`, eventData);
+    const res = await axios.put(`https://calendarbackend-u7tr.onrender.com/api/events/${eventData._id}`, eventData);
     return res.data;
   });
 
 export const deleteEvent = createAsyncThunk('events/deleteEvent', async (id) => {
-    await axios.delete(`https://calendarbackend-u7tr.onrender.com/${id}`);
+    await axios.delete(`https://calendarbackend-u7tr.onrender.com/api/events/${id}`);
     return id;
   });
   
