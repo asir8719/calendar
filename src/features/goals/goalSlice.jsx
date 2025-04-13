@@ -11,7 +11,7 @@ const initialState = {
 };
 
 export const fetchGoals = createAsyncThunk('goals/fetchGoals', async () => {
-  const res = await axios.get('http://localhost:5000/api/goals');
+  const res = await axios.get('https://calendarbackend-u7tr.onrender.com');
   return res.data;
 });
 

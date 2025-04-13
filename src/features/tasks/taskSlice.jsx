@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchTasksByGoal = createAsyncThunk('tasks/fetchByGoal', async (goalId) => {
-  const res = await axios.get(`http://localhost:5000/api/goals/${goalId}/tasks`);
+  const res = await axios.get(`https://calendarbackend-u7tr.onrender.com/${goalId}/tasks`);
   return res.data;
 });
 
